@@ -1,7 +1,5 @@
 declare namespace svelteNative.JSX {
  
-    
-
     /* svelte2tsx JSX */
     interface ElementClass {
       $$prop_def: any;
@@ -12,19 +10,12 @@ declare namespace svelteNative.JSX {
     }
   
     /* svelte-native jsx types */
-  
     type SvelteNativeNode = {};
   
     export type Child = SvelteNativeNode | SvelteNativeNode[] | string | number;
     export type Children = Child | Child[];
   
     interface IntrinsicAttributes {}
-  
-    type thing = {
-        a: string
-    }
-
-    type GestureEventData = import('tns-core-modules/ui/gestures').GestureEventData;
 
     [[INTRINSIC_ELEMENTS]]
     

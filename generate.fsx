@@ -98,4 +98,12 @@ let templateText = File.ReadAllText("template.d.ts")
 let completedTemplate = 
     templateText.Replace("[[INTRINSIC_ELEMENTS]]", "\n" + intrinsicElementTypes)
    
-printfn "%s" completedTemplate
+
+match fsi.CommandLineArgs.Length with
+| 2 -> 
+    let target = fsi.CommandLineArgs.[1]
+    File.WriteAllLines(target, [completedTemplate])
+    printfn "Types exported at: %s" target
+| _ -> 
+    printfn "\nUsage: dotnet fsi %s <outputfile>\n\n" fsi.CommandLineArgs.[0]
+            
